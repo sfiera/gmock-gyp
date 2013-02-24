@@ -20,6 +20,7 @@ def build(bld):
         target="gmock/gmock-main",
         features="universal",
         source="gmock-1.6.0/src/gmock_main.cc",
+        defines="GTEST_USE_OWN_TR1_TUPLE=1",
         use="gmock/gmock",
     )
 
@@ -33,6 +34,7 @@ def build(bld):
             "gmock-1.6.0/src/gmock-spec-builders.cc",
             "gmock-1.6.0/src/gmock.cc",
         ],
+        defines="GTEST_USE_OWN_TR1_TUPLE=1",
         includes="gmock-1.6.0 gmock-1.6.0/include",
         export_includes="gmock-1.6.0/include",
         use="gmock/gtest",
@@ -50,6 +52,7 @@ def build(bld):
             "gmock-1.6.0/gtest/src/gtest-typed-test.cc",
             "gmock-1.6.0/gtest/src/gtest.cc",
         ],
+        defines="GTEST_USE_OWN_TR1_TUPLE=1",
         includes="gmock-1.6.0/gtest gmock-1.6.0/gtest/include",
         export_includes="gmock-1.6.0/gtest/include",
         use="gmock/system/pthread",
