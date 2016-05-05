@@ -1,31 +1,30 @@
 config("gmock_public") {
-  include_dirs = [ "gmock-1.6.0/include" ]
+  include_dirs = [ "googletest-d225acc/googlemock/include" ]
 }
 
 config("gmock_private") {
   include_dirs = [
-    "gmock-1.6.0/include",
-    "gmock-1.6.0",
+    "googletest-d225acc/googlemock/include",
+    "googletest-d225acc/googlemock",
   ]
 }
 
 config("gtest_public") {
   defines = [ "GTEST_USE_OWN_TR1_TUPLE=1" ]
-  include_dirs = [ "gmock-1.6.0/gtest/include" ]
-  cflags = [ "-Wno-unused-local-typedef" ]
+  include_dirs = [ "googletest-d225acc/googletest/include" ]
 }
 
 config("gtest_private") {
   defines = [ "GTEST_USE_OWN_TR1_TUPLE=1" ]
   include_dirs = [
-    "gmock-1.6.0/gtest/include",
-    "gmock-1.6.0/gtest",
+    "googletest-d225acc/googletest/include",
+    "googletest-d225acc/googletest",
   ]
 }
 
 static_library("gmock_main") {
   sources = [
-    "gmock-1.6.0/src/gmock_main.cc",
+    "googletest-d225acc/googlemock/src/gmock_main.cc",
   ]
   public_deps = [
     ":gmock",
@@ -34,11 +33,12 @@ static_library("gmock_main") {
 
 static_library("gmock") {
   sources = [
-    "gmock-1.6.0/src/gmock-cardinalities.cc",
-    "gmock-1.6.0/src/gmock-internal-utils.cc",
-    "gmock-1.6.0/src/gmock-matchers.cc",
-    "gmock-1.6.0/src/gmock-spec-builders.cc",
-    "gmock-1.6.0/src/gmock.cc",
+    "googletest-d225acc/googlemock/src/gmock-all.cc",
+    "googletest-d225acc/googlemock/src/gmock-cardinalities.cc",
+    "googletest-d225acc/googlemock/src/gmock-internal-utils.cc",
+    "googletest-d225acc/googlemock/src/gmock-matchers.cc",
+    "googletest-d225acc/googlemock/src/gmock-spec-builders.cc",
+    "googletest-d225acc/googlemock/src/gmock.cc",
   ]
   public_deps = [
     ":gtest",
@@ -49,13 +49,14 @@ static_library("gmock") {
 
 static_library("gtest") {
   sources = [
-    "gmock-1.6.0/gtest/src/gtest-death-test.cc",
-    "gmock-1.6.0/gtest/src/gtest-filepath.cc",
-    "gmock-1.6.0/gtest/src/gtest-port.cc",
-    "gmock-1.6.0/gtest/src/gtest-printers.cc",
-    "gmock-1.6.0/gtest/src/gtest-test-part.cc",
-    "gmock-1.6.0/gtest/src/gtest-typed-test.cc",
-    "gmock-1.6.0/gtest/src/gtest.cc",
+    "googletest-d225acc/googletest/src/gtest-all.cc",
+    "googletest-d225acc/googletest/src/gtest-death-test.cc",
+    "googletest-d225acc/googletest/src/gtest-filepath.cc",
+    "googletest-d225acc/googletest/src/gtest-port.cc",
+    "googletest-d225acc/googletest/src/gtest-printers.cc",
+    "googletest-d225acc/googletest/src/gtest-test-part.cc",
+    "googletest-d225acc/googletest/src/gtest-typed-test.cc",
+    "googletest-d225acc/googletest/src/gtest.cc",
   ]
   configs += [ ":gtest_private" ]
   public_configs = [ ":gtest_public" ]
