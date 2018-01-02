@@ -1,4 +1,4 @@
-dist = "googletest-d225acc"
+dist = "googletest-5490beb"
 
 config("gmock_public") {
   include_dirs = [ "$dist/googlemock/include" ]
