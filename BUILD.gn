@@ -29,7 +29,6 @@ static_library("gmock_main") {
 
 static_library("gmock") {
   sources = [
-    "$dist/googlemock/src/gmock-all.cc",
     "$dist/googlemock/src/gmock-cardinalities.cc",
     "$dist/googlemock/src/gmock-internal-utils.cc",
     "$dist/googlemock/src/gmock-matchers.cc",
@@ -43,7 +42,6 @@ static_library("gmock") {
 
 static_library("gtest") {
   sources = [
-    "$dist/googletest/src/gtest-all.cc",
     "$dist/googletest/src/gtest-death-test.cc",
     "$dist/googletest/src/gtest-filepath.cc",
     "$dist/googletest/src/gtest-internal-inl.h",
